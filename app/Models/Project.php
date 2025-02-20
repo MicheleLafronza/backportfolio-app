@@ -12,4 +12,13 @@ class Project extends Model
         {
             return $this->belongsTo(User::class);
         }
+
+    // fillable
+    protected $fillable = [
+        'user_id',
+        'project_title',
+        'slug',
+        'summary',
+        'description'
+    ];
 }

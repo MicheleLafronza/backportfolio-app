@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Functions\Helper;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +19,10 @@ class ProjectController extends Controller
         // prendo id user
         $user_id = Auth::id();
 
-        return view('projectindex', compact('user_id'));
+        // lista di tutti i progetti
+        $projects = Project::where('user_id', $user_id)->get();
+
+        return view('projectindex', compact('projects'));
     }
 
     /**
@@ -33,7 +38,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // prendiamo id user perchè nel form non lo da
+        $data['user_id'] = Auth::id();
+        // gestione slug
+        $data['slug'] = Helper::generateSlug($data['project_title'], Project::class);
+
+        Project::create($data);
+
+        return redirect()->route('projects.index');
+
     }
 
     /**
