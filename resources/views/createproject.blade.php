@@ -85,14 +85,6 @@
                 }
             </script>
             
-            
-            <script>
-                function updateFileName(input, labelId) {
-                    const fileName = input.files.length > 0 ? input.files[0].name : "Scegli file";
-                    document.getElementById(labelId).textContent = fileName;
-                }
-            </script>
-            
             </div>
           </div>
         </div>

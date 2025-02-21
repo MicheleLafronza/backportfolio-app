@@ -25,17 +25,17 @@
             <div class="bg-white mt-3 overflow-hidden shadow-sm sm:rounded-lg text-center">
                 <h3 class="p-6">Immagini del progetto</h3>
                 
-                <div class="p-6 flex justify-center">
+                <div class="p-6 flex justify-center gap-2">
 
                     @if (isset($project->img1) || isset($project->img2) || isset($project->img2))
                         @if (isset($project->img1))
-                            <img src="{{ asset('storage/' . $project->img1) }}" alt="immagine 1 del progetto">
+                            <img class="project-image" src="{{ asset('storage/' . $project->img1) }}" alt="immagine 1 del progetto">
                         @endif
                         @if (isset($project->img2))
-                            <img src="{{ $project->img2 }}" alt="immagine 2 del progetto">
+                            <img class="project-image" src="{{ asset('storage/' . $project->img2) }}" alt="immagine 2 del progetto">
                         @endif 
                         @if (isset($project->img3))
-                            <img src="{{ $project->img3 }}" alt="immagine 3 del progetto">
+                            <img class="project-image" src="{{ asset('storage/' . $project->img3) }}" alt="immagine 3 del progetto">
                         @endif  
                     @else
                         <div class="p-6 text-gray-900">
