@@ -14,7 +14,7 @@
                     <li class="flex justify-between items-center p-3 bg-gray-200 border border-gray-400 rounded-lg shadow-md">
                         {{ $project->project_title }} - {{ $project->summary }}
                         <div class="space-x-2">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Dettagli</button>
+                            <a href="{{ route('projects.show', $project) }}"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Dettagli</button></a>
                             <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">Modifica</button>
                             <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Elimina</button>
                         </div>

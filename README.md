@@ -67,8 +67,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## TODO
 
-Buildare request dei progetti.
-Messaggi di errore da implementare nella creazione.
-Dettagli del progetto (SHOW).
 Edit del progetto (UPDATE).
 Eliminazione del progetto (DELETE).
