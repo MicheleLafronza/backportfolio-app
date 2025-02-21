@@ -15,4 +15,17 @@ class ApiController extends Controller
 
         return response()->json($data);
     }
+
+
+    // chiamata per un progetto singolo
+    public function oneProject(Project $project){
+
+        if (!$project){
+            return response()->json(['message' => 'Il progetto non esiste']);
+        } else {
+            return response()->json($project);
+        }
+
+       
+    }
 }

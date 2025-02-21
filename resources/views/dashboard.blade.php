@@ -11,10 +11,6 @@
                 <div class="p-6 text-gray-900">
                     {{ __('Attualmente hai') }} {{ $totalProjects }} {{ __('progetti registrati.') }}
                 </div>
-
-                <div class="p-6 text-gray-900">
-                    {{ __('Hai ricevuto') }} {{ __('x') }} {{ __('mail.') }}
-                </div>
             </div>
         </div>
     </div>

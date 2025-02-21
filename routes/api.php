@@ -11,3 +11,5 @@ use Illuminate\Support\Facades\Route;
 // richiesta di tutti i progetti
 Route::get('/projects', [ApiController::class, 'allProjects']);
 
+// richiesta per un singolo progetto
+Route::get('/project/{project:slug}', [ApiController::class, 'oneProject']);
