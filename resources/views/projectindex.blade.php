@@ -15,7 +15,7 @@
                         {{ $project->project_title }} - {{ $project->summary }}
                         <div class="space-x-2">
                             <a href="{{ route('projects.show', $project) }}"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Dettagli</button></a>
-                            <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">Modifica</button>
+                            <a href="{{ route('projects.edit', $project) }}"><button class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">Modifica</button></a>
                             <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Elimina</button>
                         </div>
                     </li>

@@ -93,9 +93,30 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $request->validate([
+            'project_title' => 'required|max:50',
+            'summary' => 'required|max:100',
+            'description' => 'required',
+            // 'img1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'img2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'img3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        $data = $request->all();
+
+        if ($data['project_title'] != $project->project_title) {
+            // gestione slug
+            $data['slug'] = Helper::generateSlug($data['project_title'], Project::class);
+        } else {
+            $data['slug'] = $project->slug;
+        };
+
+        $project->update($data);
+
+        return redirect()->route('projects.index');
+
     }
 
     /**
