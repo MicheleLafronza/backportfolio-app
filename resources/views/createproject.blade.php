@@ -48,27 +48,51 @@
                 </div>
                 <p class="mt-3 text-sm/6 text-gray-600">Scrivi una descrizione dettagliata del progetto.</p>
               </div>
-      
-              
-      
-              <div class="col-span-full">
-                <label for="cover-photo" class="block text-sm/6 font-medium text-gray-900">Cover photo</label>
-                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div class="text-center">
-                    <svg class="mx-auto size-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
-                      <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z" clip-rule="evenodd" />
-                    </svg>
-                    <div class="mt-4 flex text-sm/6 text-gray-600">
-                      <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-indigo-500">
-                        <span>Upload a file</span>
-                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                      </label>
-                      <p class="pl-1">or drag and drop</p>
+
+              <div class="flex flex-wrap gap-4">
+                <!-- Campo Upload 1 -->
+                <div class="flex flex-col items-center">
+                    <label for="img1" class="block text-sm font-medium text-gray-900 mb-2">Immagine 1 *</label>
+                    <div class="relative flex items-center justify-center w-32 h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-indigo-500">
+                        <input id="img1" name="img1" type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="updateFileName(this, 'file-name-1')">
+                        <span class="text-sm text-gray-500" id="file-name-1">Scegli file</span>
                     </div>
-                    <p class="text-xs/5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
-                  </div>
                 </div>
-              </div>
+            
+                <!-- Campo Upload 2 -->
+                <div class="flex flex-col items-center">
+                    <label for="img2" class="block text-sm font-medium text-gray-900 mb-2">Immagine 2</label>
+                    <div class="relative flex items-center justify-center w-32 h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-indigo-500">
+                        <input id="img2" name="img2" type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="updateFileName(this, 'file-name-2')">
+                        <span class="text-sm text-gray-500" id="file-name-2">Scegli file</span>
+                    </div>
+                </div>
+            
+                <!-- Campo Upload 3 -->
+                <div class="flex flex-col items-center">
+                    <label for="img3" class="block text-sm font-medium text-gray-900 mb-2">Immagine 3</label>
+                    <div class="relative flex items-center justify-center w-32 h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-indigo-500">
+                        <input id="img3" name="img3" type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="updateFileName(this, 'file-name-3')">
+                        <span class="text-sm text-gray-500" id="file-name-3">Scegli file</span>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                function updateFileName(input, labelId) {
+                    const fileName = input.files.length > 0 ? input.files[0].name : "Scegli file";
+                    document.getElementById(labelId).textContent = fileName;
+                }
+            </script>
+            
+            
+            <script>
+                function updateFileName(input, labelId) {
+                    const fileName = input.files.length > 0 ? input.files[0].name : "Scegli file";
+                    document.getElementById(labelId).textContent = fileName;
+                }
+            </script>
+            
             </div>
           </div>
         </div>

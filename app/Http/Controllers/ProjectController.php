@@ -41,7 +41,10 @@ class ProjectController extends Controller
         $request->validate([
             'project_title' => 'required|max:50',
             'summary' => 'required|max:100',
-            'description' => 'required'
+            'description' => 'required',
+            'img1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'img2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'img3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         $data = $request->all();
@@ -49,6 +52,21 @@ class ProjectController extends Controller
         $data['user_id'] = Auth::id();
         // gestione slug
         $data['slug'] = Helper::generateSlug($data['project_title'], Project::class);
+
+         // 📌 Controlliamo che img1 esista prima di assegnarlo
+    if ($request->hasFile('img1')) {
+        $data['img1'] = $request->file('img1')->store('uploads', 'public'); 
+    } else {
+        return back()->withErrors(['img1' => 'Errore nel caricamento dell\'immagine.']);
+    }
+
+    if ($request->hasFile('img2')) {
+        $data['img2'] = $request->file('img2')->store('uploads', 'public'); 
+    }
+
+    if ($request->hasFile('img3')) {
+        $data['img3'] = $request->file('img3')->store('uploads', 'public'); 
+    }
 
         Project::create($data);
 

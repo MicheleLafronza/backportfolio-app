@@ -29,7 +29,7 @@
 
                     @if (isset($project->img1) || isset($project->img2) || isset($project->img2))
                         @if (isset($project->img1))
-                            <img src="{{ $project->img1 }}" alt="immagine 1 del progetto">
+                            <img src="{{ asset('storage/' . $project->img1) }}" alt="immagine 1 del progetto">
                         @endif
                         @if (isset($project->img2))
                             <img src="{{ $project->img2 }}" alt="immagine 2 del progetto">

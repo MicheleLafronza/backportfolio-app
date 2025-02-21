@@ -67,5 +67,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## TODO
 
+Aggiusta database immagine1 required
 Edit del progetto (UPDATE).
 Eliminazione del progetto (DELETE).
