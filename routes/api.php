@@ -8,6 +8,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-
+// richiesta di tutti i progetti
 Route::get('/projects', [ApiController::class, 'allProjects']);
 
