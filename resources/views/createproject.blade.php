@@ -5,6 +5,16 @@
         </h2>
     </x-slot>
 
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul class="list-disc list-inside text-center">
+          @foreach ($errors->all() as $error)
+            <li class="text-red-500">{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
     <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="space-y-12 p-8">
@@ -62,6 +72,7 @@
             </div>
           </div>
         </div>
+        
       
         <div class="mt-6 pr-9 flex items-center justify-end gap-x-6">
           <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>

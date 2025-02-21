@@ -38,6 +38,12 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'project_title' => 'required|max:50',
+            'summary' => 'required|max:100',
+            'description' => 'required'
+        ]);
+
         $data = $request->all();
         // prendiamo id user perchè nel form non lo da
         $data['user_id'] = Auth::id();
