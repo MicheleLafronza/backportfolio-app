@@ -13,3 +13,6 @@ Route::get('/projects', [ApiController::class, 'allProjects']);
 
 // richiesta per un singolo progetto
 Route::get('/project/{project:slug}', [ApiController::class, 'oneProject']);
+
+// richiesta per registrare mail e messaggio
+Route::post('/contact', [ApiController::class, 'contact']);
