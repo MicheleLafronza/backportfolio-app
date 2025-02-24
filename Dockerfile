@@ -22,4 +22,4 @@ RUN composer install --no-interaction --prefer-dist
 EXPOSE 80
 
 # Avvia PHP-FPM
-CMD ["php-fpm"]
+CMD ["php-fpm", "-F"]
