@@ -42,9 +42,9 @@ class ProjectController extends Controller
             'project_title' => 'required|max:50',
             'summary' => 'required|max:100',
             'description' => 'required',
-            'img1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'img2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'img3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'img1' => 'required|image|mimes:png|max:2048',
+            'img2' => 'nullable|image|mimes:png|max:2048',
+            'img3' => 'nullable|image|mimes:png|max:2048'
         ]);
 
         $data = $request->all();
