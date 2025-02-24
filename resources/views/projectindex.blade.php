@@ -10,28 +10,40 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <ol class="list-decimal space-y-4 text-gray-900 w-full">
                     @if (count($projects) > 0)
-                    @foreach ($projects as $project)
-                    <li class="flex justify-between items-center p-3 bg-gray-200 border border-gray-400 rounded-lg shadow-md">
-                        {{ $project->project_title }} - {{ $project->summary }}
-                        <div class="space-x-2">
-                            <a href="{{ route('projects.show', $project) }}"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Dettagli</button></a>
-                            <a href="{{ route('projects.edit', $project) }}"><button class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">Modifica</button></a>
-                            <form id="delete-project-{{ $project->id }}" 
-                                action="{{ route('projects.destroy', $project->id) }}"
-                                method="POST"
-                                style="display: inline"
-                                >
-                                @csrf
-                                @method('DELETE')
-                                <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Elimina</button>
-                            </form>
-                        </div>
-                    </li>
-                    @endforeach 
+                        @foreach ($projects as $project)
+                            <li class="flex justify-between items-center p-3 bg-gray-200 border border-gray-400 rounded-lg shadow-md flex-wrap">
+                                <div class="text-sm md:text-base">
+                                    <strong>{{ $project->project_title }}</strong> - {{ $project->summary }}
+                                </div>
+                                <div class="flex space-x-2 mt-2 md:mt-0">
+                                    <!-- Dettagli -->
+                                    <a href="{{ route('projects.show', $project) }}" class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 text-xs">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    <!-- Modifica -->
+                                    <a href="{{ route('projects.edit', $project) }}" class="bg-yellow-500 text-white p-2 rounded-full hover:bg-yellow-600 text-xs">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <!-- Elimina -->
+                                    <form id="delete-project-{{ $project->id }}" 
+                                        action="{{ route('projects.destroy', $project->id) }}"
+                                        method="POST"
+                                        style="display: inline"
+                                        onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?');"
+                                    >
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 text-xs">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </li>
+                        @endforeach 
                     @else
-                    <li class="flex justify-between items-center p-3 bg-gray-200 border border-gray-400 rounded-lg shadow-md">
-                        Non si sono progetti
-                    </li>     
+                        <li class="flex justify-between items-center p-3 bg-gray-200 border border-gray-400 rounded-lg shadow-md">
+                            Non ci sono progetti
+                        </li>     
                     @endif 
                 </ol>
             </div>

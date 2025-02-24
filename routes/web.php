@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Models\Project;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,8 +14,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     // numero totale dei progetti
     $totalProjects = Project::count();
+
+    // numero totale dei messaggi
+    $totalMessages = Message::count();
     
-    return view('dashboard', compact('totalProjects'));
+    return view('dashboard', compact('totalProjects', 'totalMessages'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -21,6 +26,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('projects', ProjectController::class);
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+    Route::get('/messages/{id}', [MessageController::class, 'show'])->name('message.show');
 });
 
 

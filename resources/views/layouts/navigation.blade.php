@@ -23,6 +23,10 @@
                     <x-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
                         {{ __('Crea nuovo progetto') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('messages.index')" :active="request()->routeIs('messages.index')">
+                        {{ __('Elenco messaggi') }}
+                    </x-nav-link>
                     
                 </div>
             </div>
@@ -78,6 +82,18 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
+                {{ __('Gestione progetti') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('projects.create')" :active="request()->routeIs('projects.create')">
+                {{ __('Crea nuovo progetto') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('messages.index')" :active="request()->routeIs('messages.index')">
+                {{ __('Elenco messaggi') }}
             </x-responsive-nav-link>
         </div>
 
