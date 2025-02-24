@@ -1,5 +1,5 @@
 
-version: '3.8'
+
 
 services:
   app:
@@ -9,7 +9,7 @@ services:
     networks:
       - app-network
     ports:
-      - 10000:80 # Mappa la porta 80 del contenitore alla porta 10000 di Render
+      - 10000:80
     environment:
       DB_CONNECTION: mysql
       DB_HOST: db
