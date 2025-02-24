@@ -1,3 +1,4 @@
+
 version: '3.8'
 
 services:
@@ -8,7 +9,7 @@ services:
     networks:
       - app-network
     ports:
-      - 10000:10000
+      - 10000:80 # Mappa la porta 80 del contenitore alla porta 10000 di Render
     environment:
       DB_CONNECTION: mysql
       DB_HOST: db
@@ -16,7 +17,7 @@ services:
       DB_DATABASE: backportfolio_app
       DB_USERNAME: root
       DB_PASSWORD: root
-      PORT: 10000  # Imposta la variabile PORT a 10000
+
   db:
     image: mysql:5.7
     networks:
@@ -25,7 +26,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: backportfolio_app
     ports:
-      - 3306:3306
+      - 3306:3306 # La porta MySQL è mappata alla porta 3306
 
 networks:
   app-network:
