@@ -45,7 +45,7 @@ class ApiController extends Controller
 
         // Invia l'email
         Mail::raw($request->message, function ($message) use ($request) {
-        $message->to('test@mailtrap.io') // Sostituisci con la tua email
+        $message->to('michele.lafronza91@gmail.com') // Sostituisci con la tua email
                 ->from($request->email)
                 ->subject('Nuovo Messaggio dal Portfolio');
         });
