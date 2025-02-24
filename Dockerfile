@@ -21,5 +21,5 @@ RUN composer install --no-interaction --prefer-dist
 # Espone la porta 80
 EXPOSE 80
 
-# Avvia PHP-FPM
-CMD ["php-fpm", "-F"]
+# Avvia Nginx e PHP-FPM
+CMD service nginx start && php-fpm
