@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -47,8 +47,8 @@ return [
             'url' => env('MYSQL_URL'),
             'host' => env('MYSQLHOST', '127.0.0.1'),
             'port' => env('MYSQLPORT', '3306'),
-            'database' => env('MYSQLDATABASE', 'forge'),
-            'username' => env('MYSQLUSER', 'forge'),
+            'database' => env('MYSQLDATABASE', 'laravel'),
+            'username' => env('MYSQLUSER', 'root'),
             'password' => env('MYSQLPASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),
