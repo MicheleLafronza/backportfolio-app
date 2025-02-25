@@ -6,6 +6,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Models\Message;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
+
+Route::get('/favicon.ico', function () {
+    return Response::file(public_path('favicon.ico'));
+});
 
 Route::get('/', function () {
     return view('welcome');
